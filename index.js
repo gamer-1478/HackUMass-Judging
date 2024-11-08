@@ -82,9 +82,16 @@ app.get("/", (req, res)=>{
 app.use("/auth", authRouter);
 
 app.get("/dashboard", ensureAuthenticated, (req,res)=>{
-    res.send("Hello")
+    res.render("judge.ejs", {"currentProject":"", "currentTable":"", "currentProjectCategory":""})
 })
 
+app.get("/404", (req, res) => {
+    res.render("404.ejs")
+})
+
+app.get("*", (req,res)=>{
+    res.redirect("/404")
+})
 //listen
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Connected on port ${PORT}`))
