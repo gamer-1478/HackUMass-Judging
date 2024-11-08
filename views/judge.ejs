@@ -1,7 +1,7 @@
 <div class="reg-container">
     <div class="reg-form-container">
 
-        <form>
+        <form action="/dashboard" method="post">
             <h1 id="form-title">Table Number: <span id="info" style="width: min-content;">
                     <%=currentTable%>
                 </span>
@@ -15,33 +15,46 @@
                     <%=currentProjectCategory%>
                 </span>
             </h1>
+
+            <script>
+                function KeyUp10 (value){
+                    console.log(value)
+                    if (value < 0){
+                        value = 0
+                    }
+                    else if (value > 10) {
+                        value = 10
+                    }
+                    return value
+                }
+            </script>
             <div class="field">
-                <label for="innovation">Innovation</label>
-                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+                <label for="score1">Innovation</label>
+                <input type="number" name="score1" id="score1" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;" >
             </div>
             <div class="field">
-                <label for="innovation">Functionality</label>
-                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+                <label for="score2">Functionality</label>
+                <input type="number" name="score2" id="score2" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
             </div>
             <div class="field">
-                <label for="innovation">Practicality</label>
-                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-5">
+                <label for="score3">Practicality</label>
+                <input type="number" name="score3" id="score3" min="0" max="5" placeholder="Enter a value between 0-5"  onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
             </div>
             <div class="field">
-                <label for="innovation">Presentation</label>
-                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+                <label for="score4">Presentation</label>
+                <input type="number" name="score4" id="score4" min="0" max="10" placeholder="Enter a value between 0-10"  onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
             </div>
             <div class="field">
-                <label for="innovation">QnA</label>
-                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-5">
+                <label for="score5">QnA</label>
+                <input type="number" name="score5" id="score5" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
             </div>
             <div class="field">
-                <label for="innovation">Category Fit</label>
-                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+                <label for="score6">Category Fit</label>
+                <input type="number" name="score6" id="score6" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
             </div>
             <div class="field">
-                <label for="innovation">Any Comments?</label>
-                <input type="text" name="innovation" id="innovation" placeholder="Enter some text">
+                <label for="comments">Any Comments?</label>
+                <input type="text" name="comments" id="comments" placeholder="Enter some text">
             </div>
             <button type="submit" class="reg-submit">To Next Project →</button>
         </form>
@@ -140,7 +153,7 @@
         outline: none;
         border-radius: 15px;
     }
-    
+
     .field input:focus {
         border-color: var(--violet);
     }

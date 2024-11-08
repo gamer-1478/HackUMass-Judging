@@ -18,11 +18,12 @@ const projectSchema = new mongoose.Schema({
     score3: reqNumber,
     score4: reqNumber,
     score5: reqNumber,
+    score6: reqNumber,
+    comments: reqString,
     date: {
         type: String,
         default: dateStringWithTime
     },
-    currentProject: reqNumber
 })
 
 module.exports = mongoose.model("Projects", projectSchema)
