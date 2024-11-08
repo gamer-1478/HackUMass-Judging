@@ -12,10 +12,5 @@ function forwardAuthenticated(req, res, next) {
     else res.redirect('/');
 }
 
-function ensureAdminAuthenticated(req, res, next) {
-    if (!req.isAuthenticated()) res.redirect('/auth/login')
-    if (!req.user.admin) res.redirect('/404')
-    else return next()
-}
 
-module.exports = { ensureAuthenticated, forwardAuthenticated, ensureAdminAuthenticated };
+module.exports = { ensureAuthenticated, forwardAuthenticated };

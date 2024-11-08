@@ -1,7 +1,7 @@
 require("dotenv").config()
 const express = require('express')
 const app = express()
-const session = require('cookie-session');
+const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser");
@@ -9,9 +9,10 @@ const ejs = require('ejs');
 const ejsLayouts = require('express-ejs-layouts');
 const cors = require('cors');
 const passportInit = require('./middleware/passport.js')
-var server = require('http').createServer(app);
 
 //file imports
+const authRouter = require('./routes/authRouter');
+const { ensureAuthenticated } = require("./middleware/auth.js");
 
 
 //prod stuff (DO NOT TOUCH)
@@ -75,9 +76,15 @@ mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true }).the
 
 //routing
 app.get("/", (req, res)=>{
-    res.send("Hrlllo")
+    res.redirect("/auth/login")
+})
+
+app.use("/auth", authRouter);
+
+app.get("/dashboard", ensureAuthenticated, (req,res)=>{
+    res.send("Hello")
 })
 
 //listen
 const PORT = process.env.PORT || 3000
-server.listen(PORT, () => console.log(`Connected on port ${PORT}`))
+app.listen(PORT, () => console.log(`Connected on port ${PORT}`))
