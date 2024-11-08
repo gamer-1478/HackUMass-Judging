@@ -1,19 +1,21 @@
 require("dotenv").config()
 const express = require('express')
 const app = express()
-const session = require('express-session');
+const session = require('cookie-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser");
 const ejs = require('ejs');
 const ejsLayouts = require('express-ejs-layouts');
 const cors = require('cors');
-const passportInit = require('./middleware/passport.js')
+const passportInit = require('./middleware/passport.js');
+const path = require('node:path');
+const csv = require("csvtojson");
 
 //file imports
 const authRouter = require('./routes/authRouter');
 const { ensureAuthenticated } = require("./middleware/auth.js");
-
+const userSchema = require("./schemas/userSchema.js");
 
 //prod stuff (DO NOT TOUCH)
 if (process.env.NODE_ENV === 'production') {
@@ -81,12 +83,60 @@ app.get("/", (req, res)=>{
 
 app.use("/auth", authRouter);
 
-app.get("/dashboard", ensureAuthenticated, (req,res)=>{
-    res.render("judge.ejs", {"currentProject":"", "currentTable":"", "currentProjectCategory":""})
+app.get("/dashboard", ensureAuthenticated, async (req,res)=>{
+    userSchema.findOne({email:req.user.Judge_Email}).then(async (user)=>{
+        if (!user){
+            userSchema.create({
+                email: req.user.Judge_Email,
+                name: req.user.Judge, 
+                currentProject: 1
+            }).then(()=>{
+                res.redirect("/dashboard")
+            })
+        }
+        else {
+            var CsvfileJudges= ("./datafiles/judges_auth.csv");
+            var CsvfileAssignments = ("./datafiles/assignments.csv");
+            var CsvfileTeams = ("./datafiles/team.csv");
+            CsvfileJudges = path.resolve(CsvfileJudges)
+            CsvfileAssignments = path.resolve(CsvfileAssignments)
+            CsvfileTeams = path.resolve(CsvfileTeams)
+            
+            await csv().fromFile(CsvfileAssignments).then((jsonObj) => {CsvfileAssignments = jsonObj})
+            await csv().fromFile(CsvfileTeams).then((jsonObj) => { CsvfileTeams = jsonObj })
+            await csv().fromFile(CsvfileJudges).then((jsonObj) => { CsvfileJudges = jsonObj })
+
+            var ListOfAssignments = CsvfileAssignments.find(assignment => assignment.Judge === req.user.Judge);
+            var slot = "Slot " + user.currentProject;
+
+            var currentSlot = ListOfAssignments[slot];
+            //orignal = mqv (Table 1)
+            currentSlot = currentSlot.substring(currentSlot.indexOf(' ') + 1) //(Table 1)
+            currentSlot = currentSlot.substring(currentSlot.indexOf(' ') + 1); // 1)
+            currentSlot = currentSlot.replace(")", ""); //1
+            
+            var currentTeam = CsvfileTeams.find(team => team.tableNumber == currentSlot);
+            if (!currentTeam) {
+                res.redirect("/thankyou")
+            }
+            console.log(currentTeam);
+            res.render("judge.ejs", { "currentProject": currentTeam.teamName, "currentTable": currentTeam.tableNumber, "currentProjectCategory": currentTeam.categoryApplied  })
+        }
+    })
+})
+
+app.post("/dashboard", ensureAuthenticated, async (req,res)=>{
+    var {score1, score2, score3, score4, score5, currentTable} = req.body;
+
+    var CurrentJudge = userSchema.findOne({email: req.user.Judge_Email});
 })
 
 app.get("/404", (req, res) => {
     res.render("404.ejs")
+})
+
+app.get("/thankyou", (req, res) => {
+    res.render("thankyou.ejs")
 })
 
 app.get("*", (req,res)=>{

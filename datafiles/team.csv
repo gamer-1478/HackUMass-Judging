@@ -1,66 +1,65 @@
-teamName,tableNumber
-mqv,1
-nee,2
-ohr,3
-ukc,4
-guh,5
-iok,6
-qzn,7
-ytf,8
-hrq,9
-ixb,10
-iqo,11
-tko,12
-muv,13
-gwm,14
-vqv,15
-aqc,16
-zff,17
-nds,18
-old,19
-smz,20
-apg,21
-qys,22
-xph,23
-rse,24
-eqd,25
-dyw,26
-vyz,27
-mji,28
-aiz,29
-hrq,30
-bkf,31
-juy,32
-hzt,33
-kdp,34
-ucz,35
-edh,36
-lsp,37
-nqa,38
-qha,39
-vvl,40
-rot,41
-xwc,42
-dnr,43
-eor,44
-pan,45
-pbs,46
-ktg,47
-kof,48
-pyv,49
-vhv,50
-bms,51
-bdf,52
-ghm,53
-cyl,54
-kvl,55
-zih,56
-mfc,57
-dwi,58
-fmj,59
-vht,60
-phu,61
-ryl,62
-kyu,63
-ktz,64
-
+teamName,tableNumber,categoryApplied
+mqv,1,Best Use of ML/AI
+nee,2,Best UI/UX
+ohr,3,Best Novel Hack
+ukc,4,Best Novel Hack
+guh,5,Best Android/IOS (Mobile App)
+iok,6,Best Use of ML/AI
+qzn,7,Best Novel Hack
+ytf,8,Best AR/VR Hack
+hrq,9,Best Embedded System
+ixb,10,Best Android/IOS (Mobile App)
+iqo,11,Best Smart Home Hack
+tko,12,Best AR/VR Hack
+muv,13,Best UI/UX
+gwm,14,Best Security Hack
+vqv,15,Best Security Hack
+aqc,16,Best Smart Home Hack
+zff,17,Best AR/VR Hack
+nds,18,Best Use of GenAI
+old,19,Best Smart Home Hack
+smz,20,Best Use of ML/AI
+apg,21,Best Embedded System
+qys,22,Best Use of ML/AI
+xph,23,Best Security Hack
+rse,24,Best Embedded System
+eqd,25,Best Android/IOS (Mobile App)
+dyw,26,Best Mechanical Hack
+vyz,27,Best UMass-Related Hack
+mji,28,Best Use of GenAI
+aiz,29,Best AR/VR Hack
+hrq,30,Best Security Hack
+bkf,31,Best Smart Home Hack
+juy,32,Best UI/UX
+hzt,33,Best Use of GenAI
+kdp,34,Best UI/UX
+ucz,35,Best Novel Hack
+edh,36,Best UI/UX
+lsp,37,Best Novel Hack
+nqa,38,Best AR/VR Hack
+qha,39,Best UI/UX
+vvl,40,Best AR/VR Hack
+rot,41,Best Use of GenAI
+xwc,42,Best Use of ML/AI
+dnr,43,Best Embedded System
+eor,44,Best Smart Home Hack
+pan,45,Best UMass-Related Hack
+pbs,46,Best Novel Hack
+ktg,47,Best UI/UX
+kof,48,Best Novel Hack
+pyv,49,Best Use of GenAI
+vhv,50,Best Smart Home Hack
+bms,51,Best Mechanical Hack
+bdf,52,Best AR/VR Hack
+ghm,53,Best Smart Home Hack
+cyl,54,Best Use of ML/AI
+kvl,55,Best UI/UX
+zih,56,Best Use of ML/AI
+mfc,57,Best UI/UX
+dwi,58,Best AR/VR Hack
+fmj,59,Best Use of GenAI
+vht,60,Best Embedded System
+phu,61,Best UMass-Related Hack
+ryl,62,Best Use of ML/AI
+kyu,63,Best Mechanical Hack
+ktz,64,Best UMass-Related Hack

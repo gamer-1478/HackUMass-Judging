@@ -1,0 +1,164 @@
+<div class="reg-container">
+    <div class="reg-form-container">
+
+        <form>
+            <h1 id="form-title">Table Number: <span id="info" style="width: min-content;">
+                    <%=currentTable%>
+                </span>
+            </h1>
+            <h1 id="form-title">Project Name: <span id="info" style="width: min-content;">
+                    <%=currentProject%>
+                </span>
+            </h1>
+
+            <h1 id="form-title">Project Category: <span id="info-category" style="width: min-content;">
+                    <%=currentProjectCategory%>
+                </span>
+            </h1>
+            <div class="field">
+                <label for="innovation">Innovation</label>
+                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+            </div>
+            <div class="field">
+                <label for="innovation">Functionality</label>
+                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+            </div>
+            <div class="field">
+                <label for="innovation">Practicality</label>
+                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-5">
+            </div>
+            <div class="field">
+                <label for="innovation">Presentation</label>
+                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+            </div>
+            <div class="field">
+                <label for="innovation">QnA</label>
+                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-5">
+            </div>
+            <div class="field">
+                <label for="innovation">Category Fit</label>
+                <input type="text" name="innovation" id="innovation" placeholder="Enter a value between 1-10">
+            </div>
+            <div class="field">
+                <label for="innovation">Any Comments?</label>
+                <input type="text" name="innovation" id="innovation" placeholder="Enter some text">
+            </div>
+            <button type="submit" class="reg-submit">To Next Project →</button>
+        </form>
+
+    </div>
+</div>
+
+<style>
+    #form-title {
+        color: white;
+        font-size: 22pt;
+    }
+
+    #info {
+        color: var(--violet);
+        font-size: 48px;
+        font-weight: 400;
+    }
+
+    #info-category {
+        color: var(--violet);
+        font-size: 40px;
+        font-weight: 400;
+    }
+
+    .reg-submit {
+        background-color: var(--violet);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 24px;
+        border-radius: 10px;
+        margin: 40px 2px 4px;
+        cursor: pointer;
+        width: 300px;
+    }
+
+    .reg-container {
+        background-color: var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        min-height: 100vh;
+        min-width: 100vw;
+    }
+
+    .reg-form-container {
+        padding: 1rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: left;
+    }
+
+    .reg-form-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .reg-form-container label {
+        color: var(--grey);
+        font-size: 14px;
+        margin-bottom: 0.8rem;
+    }
+
+    .reg-form-container h1 {
+        color: var(--violet);
+        text-align: center;
+        font-size: 52px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .field {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .field input {
+        transition: border-color 0.3s ease-out;
+        font-size: 16px;
+        padding: 0.8rem 1rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: var(--white);
+        outline: 0;
+        border-width: 0 0 2px;
+        width: 30vw;
+        border: 2px solid var(--text);
+        outline: none;
+        border-radius: 15px;
+    }
+    
+    .field input:focus {
+        border-color: var(--violet);
+    }
+
+    @media screen and (width < 798px) {
+        .reg-form-container {
+            width: 90vw;
+            margin: 0;
+        }
+
+        .reg-form-container form {
+            width: 90vw;
+            padding: 5vw;
+        }
+
+        .field,
+        .field input {
+            width: 90vw;
+        }
+    }
+</style>
