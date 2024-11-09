@@ -124,7 +124,15 @@ app.get("/dashboard", ensureAuthenticated, async (req, res) => {
 
                 var currentTeam = CsvfileTeams.find(team => team.tableNumber == currentSlot);
                 console.log(currentTeam);
-                res.render("judge.ejs", { "currentProject": currentTeam.teamName, "currentTable": currentTeam.tableNumber, "currentProjectCategory": currentTeam.categoryApplied })
+                const totalProjects = Object.keys(ListOfAssignments).length - 2;
+                console.log(ListOfAssignments.length)
+                res.render("judge.ejs", { 
+                    "currentProject": currentTeam.teamName, 
+                    "currentTable": currentTeam.tableNumber, 
+                    "currentProjectCategory": currentTeam.categoryApplied,
+                    "currentSlot": currentSlot,
+                    "totalProjects": totalProjects,
+                })
             }
         }
     })
