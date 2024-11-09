@@ -1,13 +1,14 @@
 <div class="reg-container">
-    <div class="reg-form-container">
 
-        <form action="/dashboard" method="post">
+
+    <div class="reg-form-container">
+        <form id="main-form" method="post">
             <h1 id="form-title">Table Number: <span id="info" style="width: min-content;">
-                    <%=currentTable%> 
+                    <%=currentTable%>
                 </span>
             </h1>
             <h1 id="form-title">Projects Judged: <span id="info" style="width: min-content;">
-                <%=currentSlot%> / <%=totalProjects%> 
+                    <%=currentSlot%> / <%=totalProjects%>
                 </span>
             </h1>
             <h1 id="form-title">Project Name: <span id="info" style="width: min-content;">
@@ -26,31 +27,38 @@
                         <li>Is this a new concept or a new approach to an existing concept?</li>
                         <li>Is it an out-of-the box solution or is it creative in its solution approach?</li>
                     </ul>
-                    <input type="number" value="0" name="score1" id="score1" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;" >
+                    <input type="number" name="score1" id="score1" min="0" max="10"
+                        placeholder="Enter a value between 0-10"
+                        onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
                 </div>
 
                 <div class="field">
                     <label class="field-label" for="score2">Functionality (0-10)</label>
                     <ul>
-                    <li>Does the project work as described?</li>
-                    <li>Is it a sound solution without significant bugs?</li>
-                    <li>How well does the project accomplish its stated goal?</li>
-                    <li>How is the design (UI, code readability)?</li>
-                    <li>How is the intractability of the project?</li>
+                        <li>Does the project work as described?</li>
+                        <li>Is it a sound solution without significant bugs?</li>
+                        <li>How well does the project accomplish its stated goal?</li>
+                        <li>How is the design (UI, code readability)?</li>
+                        <li>How is the intractability of the project?</li>
                     </ul>
-                    <input type="number" value="0" name="score2" id="score2" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                    <input type="number" name="score2" id="score2" min="0" max="10"
+                        placeholder="Enter a value between 0-10"
+                        onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
                 </div>
 
                 <div class="field">
                     <label class="field-label" for="score3">Practicality (0-5)</label>
                     <ul>
                         <li>How feasible is the solution in a real-world context?</li>
-                        <li>Are the required resources for a full-scale implementation justified for its potential impact?</li>
+                        <li>Are the required resources for a full-scale implementation justified for its potential
+                            impact?</li>
                         <li>Is the project scalable to cater to a larger user base?</li>
                     </ul>
-                    <input type="number" value="0" name="score3" id="score3" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
+                    <input type="number" name="score3" id="score3" min="0" max="5"
+                        placeholder="Enter a value between 0-5"
+                        onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
                 </div>
-                
+
                 <div class="field">
                     <label class="field-label" for="score4">Presentation (0-10)</label>
                     <ul>
@@ -58,26 +66,32 @@
                         <li>Was there evident collaboration/team spirit?</li>
                         <li>How clear was the goals/purpose of the project?</li>
                     </ul>
-                    <input type="number" value="0" name="score4" id="score4" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                    <input type="number" name="score4" id="score4" min="0" max="10"
+                        placeholder="Enter a value between 0-10"
+                        onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
                 </div>
-                
+
                 <div class="field">
                     <label class="field-label" for="score5">QnA (0-5)</label>
                     <ul>
                         <li>Was the team able to answer questions clearly and thoughtfully?</li>
                         <li>Were the answers concise?</li>
                     </ul>
-                    <input type="number" value="0" name="score5" id="score5" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
+                    <input type="number" name="score5" id="score5" min="0" max="5"
+                        placeholder="Enter a value between 0-5"
+                        onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
                 </div>
-                
+
                 <div class="field">
                     <label class="field-label" for="score6">Category Fit (0-10)</label>
                     <ul>
                         <li>How well did the project fit into the certain category?</li>
                     </ul>
-                    <input type="number" value="0" name="score6" id="score6" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                    <input type="number" name="score6" id="score6" min="0" max="10"
+                        placeholder="Enter a value between 0-10"
+                        onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
                 </div>
-                
+
                 <div class="field">
                     <label class="field-label" for="comments">Any Comments?</label>
                     <ul>
@@ -85,13 +99,67 @@
                         <li>Any general notes</li>
                     </ul>
                     <input type="text" value="Hi" name="comments" id="comments" placeholder="Enter some text">
-                </div>                
+                </div>
             </div>
             <button type="submit" class="reg-submit">To Next Project →</button>
         </form>
-
     </div>
 </div>
+<script>
+    var notyf = new Notyf();
+    document.getElementById('main-form').addEventListener('submit', async (event) => {
+        console.log("Submit Detected")
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form values
+        const score1 = document.getElementById('score1').value;
+        const score2 = document.getElementById('score2').value;
+        const score3 = document.getElementById('score3').value;
+        const score4 = document.getElementById('score4').value;
+        const score5 = document.getElementById('score5').value;
+        const score6 = document.getElementById('score6').value;
+        const comments = document.getElementById('comments').value;
+
+        // Check if all required fields are filled
+        if ([score1, score2, score3, score4, score5, score6].some(score => score === '') || comments === '') {
+            notyf.error('Please fill out all the scores and comments before submitting.');
+            return;
+        }
+        else {        // Create a FormData object for the POST request
+            const payload = {
+                score1: parseInt(score1),
+                score2: parseInt(score2),
+                score3: parseInt(score3),
+                score4: parseInt(score4),
+                score5: parseInt(score5),
+                score6: parseInt(score6),
+                comments: comments
+            };
+
+            try {
+                // Send data using fetch with the form's action URL and method
+                const response = await fetch('/dashboard', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload),
+                    redirect: 'follow' // Allow following redirects
+                });
+
+                // If successful, redirect to the destination page
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else {
+                    const responseText = await response.text();
+                    console.log("Response:", responseText);
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+            }
+        }
+    });
+</script>
 
 <style>
     .field ul {
@@ -174,8 +242,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-left: 15%;
-        padding-right: 15%;
+        margin: 0 15% 0 15%;
     }
 
     .field {
