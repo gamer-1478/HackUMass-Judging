@@ -15,52 +15,73 @@
                     <%=currentProjectCategory%>
                 </span>
             </h1>
+            <div class="field-container">
+                <div class="field">
+                    <label class="field-label" for="score1">Innovation (0-10)</label>
+                    <ul>
+                        <li>Is this a new concept or a new approach to an existing concept?</li>
+                        <li>Is it an out-of-the box solution or is it creative in its solution approach?</li>
+                    </ul>
+                    <input type="number" value="0" name="score1" id="score1" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;" >
+                </div>
 
-            <div class="field">
-                <label for="score1">Innovation (0-10)</label>
-                <p>Is this a new concept or a new approach to an existing concept?<br>
-                Is it an out-of-the box solution or is it creative in its solution approach?</p>
-                <input type="number" value="0" name="score1" id="score1" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;" >
-            </div>
-            <div class="field">
-                <label for="score2">Functionality (0-10)</label>
-                <p>Does the project work as described?<br>
-                Is it a sound solution without significant bugs?<br>
-                How well does the project accomplish its stated goal?<br>
-                How is the design (UI, code readability)?<br>
-                How is the intractability of the project?</p>
-                <input type="number" value="0" name="score2" id="score2" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
-            </div>
-            <div class="field">
-                <label for="score3">Practicality (0-5)</label>
-                <p>How feasible is the solution in a real-world context?<br>
-                Are the required resources for a full-scale implementation justified for its potential impact?<br>
-                Is the project scalable to cater to a larger user base?</p>
-                <input type="number" value="0" name="score3" id="score3" min="0" max="5" placeholder="Enter a value between 0-5"  onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
-            </div>
-            <div class="field">
-                <label for="score4">Presentation (0-10)</label>
-                <p>How well do the presenters convey their ideas?<br>
-                Was there evident collaboration/team spirit?<br>
-                How clear was the goals/purpose of the project?</p>
-                <input type="number" value="0" name="score4" id="score4" min="0" max="10" placeholder="Enter a value between 0-10"  onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
-            </div>
-            <div class="field">
-                <label for="score5">QnA (0-5)</label>
-                <p>Was the team able to answer questions clearly and thoughtfully?<br>
-                Were the answers concise?</p>
-                <input type="number" value="0" name="score5" id="score5" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
-            </div>
-            <div class="field">
-                <label for="score6">Category Fit (0-10)</label>
-                <p>How well did the project fit into the certain category?</p>
-                <input type="number" value="0" name="score6" id="score6" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
-            </div>
-            <div class="field">
-                <label for="comments">Any Comments?</label>
-                <p>Category specific notes for deciding category winners (maybe give guiding questions?)<br>
-                Any general notes</p>
-                <input type="text" value="Hi" name="comments" id="comments" placeholder="Enter some text">
+                <div class="field">
+                    <label class="field-label" for="score2">Functionality (0-10)</label>
+                    <ul>
+                    <li>Does the project work as described?</li>
+                    <li>Is it a sound solution without significant bugs?</li>
+                    <li>How well does the project accomplish its stated goal?</li>
+                    <li>How is the design (UI, code readability)?</li>
+                    <li>How is the intractability of the project?</li>
+                    </ul>
+                    <input type="number" value="0" name="score2" id="score2" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="score3">Practicality (0-5)</label>
+                    <ul>
+                        <li>How feasible is the solution in a real-world context?</li>
+                        <li>Are the required resources for a full-scale implementation justified for its potential impact?</li>
+                        <li>Is the project scalable to cater to a larger user base?</li>
+                    </ul>
+                    <input type="number" value="0" name="score3" id="score3" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
+                </div>
+                
+                <div class="field">
+                    <label class="field-label" for="score4">Presentation (0-10)</label>
+                    <ul>
+                        <li>How well do the presenters convey their ideas?</li>
+                        <li>Was there evident collaboration/team spirit?</li>
+                        <li>How clear was the goals/purpose of the project?</li>
+                    </ul>
+                    <input type="number" value="0" name="score4" id="score4" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                </div>
+                
+                <div class="field">
+                    <label class="field-label" for="score5">QnA (0-5)</label>
+                    <ul>
+                        <li>Was the team able to answer questions clearly and thoughtfully?</li>
+                        <li>Were the answers concise?</li>
+                    </ul>
+                    <input type="number" value="0" name="score5" id="score5" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
+                </div>
+                
+                <div class="field">
+                    <label class="field-label" for="score6">Category Fit (0-10)</label>
+                    <ul>
+                        <li>How well did the project fit into the certain category?</li>
+                    </ul>
+                    <input type="number" value="0" name="score6" id="score6" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                </div>
+                
+                <div class="field">
+                    <label class="field-label" for="comments">Any Comments?</label>
+                    <ul>
+                        <li>Category specific notes for deciding category winners (maybe give guiding questions?)</li>
+                        <li>Any general notes</li>
+                    </ul>
+                    <input type="text" value="Hi" name="comments" id="comments" placeholder="Enter some text">
+                </div>                
             </div>
             <button type="submit" class="reg-submit">To Next Project →</button>
         </form>
@@ -69,10 +90,10 @@
 </div>
 
 <style>
-    .field p {
-        color: var(--violet);
-        margin-bottom: 5px;
+    .field ul {
+        margin-bottom: 15px;
         text-wrap: wrap;
+        color: var(--white);
     }
 
     #form-title {
@@ -130,8 +151,8 @@
     }
 
     .reg-form-container label {
-        color: var(--white);
-        font-size: 18px;
+        color: var(--violet);
+        font-size: 25px;
         margin-bottom: 0.8rem;
     }
 
@@ -141,6 +162,16 @@
         font-size: 52px;
         font-weight: 400;
         margin-bottom: 20px;
+    }
+
+    .field-container {
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 15%;
+        padding-right: 15%;
     }
 
     .field {
