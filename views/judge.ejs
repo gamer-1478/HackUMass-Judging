@@ -16,45 +16,33 @@
                 </span>
             </h1>
 
-            <script>
-                function KeyUp10 (value){
-                    console.log(value)
-                    if (value < 0){
-                        value = 0
-                    }
-                    else if (value > 10) {
-                        value = 10
-                    }
-                    return value
-                }
-            </script>
             <div class="field">
                 <label for="score1">Innovation</label>
-                <input type="number" name="score1" id="score1" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;" >
+                <input type="number" value="0" name="score1" id="score1" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;" >
             </div>
             <div class="field">
                 <label for="score2">Functionality</label>
-                <input type="number" name="score2" id="score2" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                <input type="number" value="0" name="score2" id="score2" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
             </div>
             <div class="field">
                 <label for="score3">Practicality</label>
-                <input type="number" name="score3" id="score3" min="0" max="5" placeholder="Enter a value between 0-5"  onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
+                <input type="number" value="0" name="score3" id="score3" min="0" max="5" placeholder="Enter a value between 0-5"  onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
             </div>
             <div class="field">
                 <label for="score4">Presentation</label>
-                <input type="number" name="score4" id="score4" min="0" max="10" placeholder="Enter a value between 0-10"  onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                <input type="number" value="0" name="score4" id="score4" min="0" max="10" placeholder="Enter a value between 0-10"  onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
             </div>
             <div class="field">
                 <label for="score5">QnA</label>
-                <input type="number" name="score5" id="score5" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
+                <input type="number" value="0" name="score5" id="score5" min="0" max="5" placeholder="Enter a value between 0-5" onkeyup="if (value < 0) value = 0; else if (value > 5) value = 5;">
             </div>
             <div class="field">
                 <label for="score6">Category Fit</label>
-                <input type="number" name="score6" id="score6" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
+                <input type="number" value="0" name="score6" id="score6" min="0" max="10" placeholder="Enter a value between 0-10" onkeyup="if (value < 0) value = 0; else if (value > 10) value = 10;">
             </div>
             <div class="field">
                 <label for="comments">Any Comments?</label>
-                <input type="text" name="comments" id="comments" placeholder="Enter some text">
+                <input type="text" value="Hi" name="comments" id="comments" placeholder="Enter some text">
             </div>
             <button type="submit" class="reg-submit">To Next Project →</button>
         </form>
