@@ -140,6 +140,7 @@
                 // Send data using fetch with the form's action URL and method
                 const response = await fetch('/dashboard', {
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json'
                     },
