@@ -1,7 +1,7 @@
 require("dotenv").config()
 const express = require('express')
 const app = express()
-const session = require('express-session');
+const session = require('cookie-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const cookieParser = require("cookie-parser");
@@ -16,7 +16,7 @@ const { Parser } = require('json2csv');
 
 //file imports
 const authRouter = require('./routes/authRouter');
-const { ensureAuthenticated, forwardAuthenticated } = require("./middleware/auth.js");
+const { ensureAuthenticated } = require("./middleware/auth.js");
 const userSchema = require("./schemas/userSchema.js");
 const projectSchema = require("./schemas/projectSchema.js");
 
@@ -47,6 +47,27 @@ app.use(ejsLayouts)
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 
+
+//cookie stuff (DO NOT TOUCH)
+if (process.env.NODE_ENV === 'production') {
+    app.use(session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+        sameSite: 'none',
+        overwrite: true,
+        secure: true,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }));
+} else {
+    app.use(session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }));
+}
+
 app.use(cookieParser(process.env.SESSION_SECRET));
 
 passportInit(passport)
@@ -72,8 +93,8 @@ csv().fromFile(CsvfileTeams).then((jsonObj) => { CsvfileTeams = jsonObj })
 csv().fromFile(CsvfileJudges).then((jsonObj) => { CsvfileJudges = jsonObj })
 
 //routing
-app.get("/", forwardAuthenticated, (req, res) => {
-    res.render("login.ejs")
+app.get("/", (req, res) => {
+    res.redirect("/auth/login")
 })
 
 app.use("/auth", authRouter);
@@ -200,7 +221,6 @@ app.get("/thankyou", (req, res) => {
 app.get("*", (req, res) => {
     res.redirect("/404")
 })
-
 //listen
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Connected on port ${PORT}`))
