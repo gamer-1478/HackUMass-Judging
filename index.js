@@ -11,6 +11,8 @@ const cors = require('cors');
 const passportInit = require('./middleware/passport.js');
 const path = require('node:path');
 const csv = require("csvtojson");
+const fs = require('fs');
+const { Parser } = require('json2csv');
 
 //file imports
 const authRouter = require('./routes/authRouter');
@@ -162,6 +164,42 @@ app.post("/dashboard", ensureAuthenticated, async (req, res) => {
             res.redirect("/dashboard");
         })
     })
+})
+
+app.get("/weneedthefuckingdata", async (req, res) => {
+    projectSchema.find().then((projects) => {
+        //convert this data to a csv
+        const fields = [
+            'teamName',
+            'teamCategory',
+            'teamJudge',
+            'teamJudgeEmail',
+            'teamTable',
+            'score1',
+            'score2',
+            'score3',
+            'score4',
+            'score5',
+            'score6',
+            'comments',
+            'date'
+        ];
+        // Initialize json2csv parser
+        const json2csvParser = new Parser({ fields });
+        const csv = json2csvParser.parse(projects);
+
+        // Write CSV data to a file
+        fs.writeFile('JudgeSoftware.csv', csv, (err) => {
+            if (err) {
+                console.error('Error writing to CSV file', err);
+            } else {
+                console.log('CSV file successfully created');
+            }
+        });
+    }).catch(err => {
+        console.error('Error fetching data from MongoDB', err);
+    });
+    res.send("Hello")
 })
 
 app.get("/404", (req, res) => {
